@@ -55,46 +55,48 @@ app.post('/webhook', (req, res) => {
             type: 'text',
             text: `ไม่พบข้อมูล`
           }
-          name && findItem(name, (result) => {
-            console.log('result in');
-            switch (command) {
-              case 'img':
-                messageResponse = {
-                  type: "image",
-                  originalContentUrl: result.imgUrl,
-                  previewImageUrl: result.imgUrl
-                }
-                break;
-              case 'fb':
-                messageResponse = {
-                  type: 'text',
-                  text: `Facebook's ${name} are ${result.facebook} years old.`
-                }
-                break;
-              case 'age':
-                messageResponse = {
-                  type: 'text',
-                  text: `${name} are ${result.age} years old.`
-                }
-                break;
-              default:
-                messageResponse = [
-                  {
-                    type: 'text',
-                    text: `ขอโทษ :( ไม่รู้จักคำสั่ง ${command}`
-                  },
-                  {
-                    type: "sticker",
-                    packageId: "149",
-                    stickerId: "2"
+          if(text || name) {
+            replyMessage(replyToken, messageResponse)
+          } else {
+            findItem(name, (result) => {
+              console.log('result in');
+              switch (command) {
+                case 'img':
+                  messageResponse = {
+                    type: "image",
+                    originalContentUrl: result.imgUrl,
+                    previewImageUrl: result.imgUrl
                   }
-                ]
-                break;
-            }
-          })
-          
-        replyMessage(replyToken, messageResponse)
-
+                  break;
+                case 'fb':
+                  messageResponse = {
+                    type: 'text',
+                    text: `Facebook's ${name} are ${result.facebook} years old.`
+                  }
+                  break;
+                case 'age':
+                  messageResponse = {
+                    type: 'text',
+                    text: `${name} are ${result.age} years old.`
+                  }
+                  break;
+                default:
+                  messageResponse = [
+                    {
+                      type: 'text',
+                      text: `ขอโทษ :( ไม่รู้จักคำสั่ง ${command}`
+                    },
+                    {
+                      type: "sticker",
+                      packageId: "149",
+                      stickerId: "2"
+                    }
+                  ]
+                  break;
+              }
+              replyMessage(replyToken, messageResponse)
+            })
+          }
         } else if(type == 'sticker') {
           let stickerId = message.stickerId;
           let packageId = message.packageId;

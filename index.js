@@ -59,7 +59,7 @@ app.post('/webhook', (req, res) => {
           console.log(`command: ${command}`);
           console.log(`name: ${name}`);
           
-          if(!text || !name) {
+          if((!text || !name) || (command != 'help') ) {
             replyMessage(replyToken, messageResponse)
           } else {
             findItem(name, (res) => {
@@ -78,7 +78,7 @@ app.post('/webhook', (req, res) => {
                 case 'facebook':
                   messageResponse = {
                     type: 'text',
-                    text: `Facebook's ${name} are ${result.facebook} years old.`
+                    text: `Facebook's ${name} are ${result.facebook}`
                   }
                   break;
                 case 'age':

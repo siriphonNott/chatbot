@@ -44,19 +44,14 @@ app.post('/webhook', (req, res) => {
           let text = message.text;
 
           const messageResponse = [
+            // {
+            //   type: 'text',
+            //   text: `NottDev สวัสดีครับ มีอะไรหรอครับ? ก็มาดิครับ`
+            // },
             {
-              type: 'text',
-              text: `NottDev สวัสดีครับ มีอะไรหรอครับ? ก็มาดิครับ`
-            },
-            {
-              type: "sticker",
-              packageId: "2",
-              stickerId: "1"
-            },
-            {
-              type: "sticker",
-              packageId: "1",
-              stickerId: "1"
+              "type": "sticker",
+              "packageId": "1",
+              "stickerId": "1"
             }
           ];
         

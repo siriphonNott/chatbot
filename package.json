@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "express": "^4.16.4",
-    "body-parser": "^1.18.3"
+    "@line/bot-sdk": "^6.4.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
   },
   "devDependencies": {},
   "scripts": {

@@ -90,10 +90,7 @@ app.post('/webhook', (req, res) => {
                 case 'help':
                   messageResponse = {
                     type: 'text',
-                    text: `ท่านสามารถใช้คำสั่ง เหล่านี้ได้\n\n
-                           - img <name>\n
-                           - fb <name>\n
-                           - age <name>`
+                    text: `ท่านสามารถใช้คำสั่ง เหล่านี้ได้\n\n- img <name>\n- fb <name>\n- age <name>`
                   }
                   break;
                 default:

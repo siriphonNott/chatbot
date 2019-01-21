@@ -49,9 +49,9 @@ app.post('/webhook', (req, res) => {
               text: `NottDev สวัสดีครับ มีอะไรหรอครับ? ก็มาดิครับ`
             },
             {
-              "type": "sticker",
-              "packageId": "1",
-              "stickerId": "1"
+              type: "sticker",
+              packageId: "1",
+              stickerId: "1"
             }
           ];
         

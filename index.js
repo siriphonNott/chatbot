@@ -55,13 +55,18 @@ app.post('/webhook', (req, res) => {
             type: 'text',
             text: `ไม่พบข้อมูล`
           }
+          console.log(`text: ${text}`);
+          console.log(`command: ${command}`);
+          console.log(`name: ${name}`);
+          
           if(text || name) {
             replyMessage(replyToken, messageResponse)
           } else {
             findItem(name, (result) => {
               console.log('result in');
-              switch (command) {
+              switch (command.toLowerCase()) {
                 case 'img':
+                case 'image':
                   messageResponse = {
                     type: "image",
                     originalContentUrl: result.imgUrl,
@@ -69,6 +74,7 @@ app.post('/webhook', (req, res) => {
                   }
                   break;
                 case 'fb':
+                case 'facebook':
                   messageResponse = {
                     type: 'text',
                     text: `Facebook's ${name} are ${result.facebook} years old.`

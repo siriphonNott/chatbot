@@ -64,7 +64,6 @@ app.post('/webhook', (req, res) => {
           } else {
             findItem(name, (res) => {
               let result = res[0];
-              console.log('result in');
               switch (command.toLowerCase()) {
                 case 'img':
                 case 'image':
@@ -95,10 +94,10 @@ app.post('/webhook', (req, res) => {
                   break;
                 default:
                   messageResponse = [
-                    {
-                      type: 'text',
-                      text: `ขอโทษ :( ไม่รู้จักคำสั่ง ${command}`
-                    },
+                    // {
+                    //   type: 'text',
+                    //   text: `ขอโทษ :( ไม่รู้จักคำสั่ง ${command}`
+                    // },
                     {
                       type: "sticker",
                       packageId: "149",

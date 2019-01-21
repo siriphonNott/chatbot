@@ -45,7 +45,7 @@ app.post('/webhook', (req, res) => {
         if(type == 'text') {
           let text = message.text;
 
-          const message = [
+          const messageResponse = [
             {
               type: 'text',
               text: `NottDev สวัสดีครับ มีอะไรหรอครับ? ก็มาดิครับ`
@@ -57,7 +57,7 @@ app.post('/webhook', (req, res) => {
             }
           ];
         
-        replyMessage(replyToken, message)
+        replyMessage(replyToken, messageResponse)
 
         } else if(type == 'sticker') {
           let stickerId = message.stickerId;

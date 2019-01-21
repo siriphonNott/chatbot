@@ -28,10 +28,8 @@ app.post('/webhook', (req, res) => {
     let type = events.type;
     let replyToken = events.replyToken;
 
-    console.log(`[type] ==>`);
-    console.log(type);
-    console.log(`[replyToken] ==>`);
-    console.log(replyToken);
+    console.log(`[type] ==> ${type}`);
+    console.log(`[replyToken] ==> ${replyToken}`);
     console.log(`[source] ==>`);
     console.log(source);
     console.log(`[message] ==>`);
@@ -49,12 +47,8 @@ app.post('/webhook', (req, res) => {
             {
               type: 'text',
               text: `NottDev สวัสดีครับ มีอะไรหรอครับ? ก็มาดิครับ`
-            },
-            {
-              type: "sticker",
-              packageId: "51626496",
-              stickerId: "11538"
             }
+          
           ];
         
         replyMessage(replyToken, messageResponse)

@@ -59,7 +59,7 @@ app.post('/webhook', (req, res) => {
           console.log(`command: ${command}`);
           console.log(`name: ${name}`);
           
-          if((!text || !name) || (command != 'help') ) {
+          if((!text || !name) && (command != 'help') ) {
             replyMessage(replyToken, messageResponse)
           } else {
             findItem(name, (res) => {

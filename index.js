@@ -62,7 +62,8 @@ app.post('/webhook', (req, res) => {
           if(!text || !name) {
             replyMessage(replyToken, messageResponse)
           } else {
-            findItem(name, (result) => {
+            findItem(name, (res) => {
+              let result = res[0];
               console.log('result in');
               switch (command.toLowerCase()) {
                 case 'img':
@@ -84,6 +85,15 @@ app.post('/webhook', (req, res) => {
                   messageResponse = {
                     type: 'text',
                     text: `${name} are ${result.age} years old.`
+                  }
+                  break;
+                case 'help':
+                  messageResponse = {
+                    type: 'text',
+                    text: `ท่านสามารถใช้คำสั่ง เหล่านี้ได้\n\n
+                           - img <name>\n
+                           - fb <name>\n
+                           - age <name>`
                   }
                   break;
                 default:

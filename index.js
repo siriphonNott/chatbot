@@ -94,14 +94,14 @@ app.post('/webhook', (req, res) => {
                   break;
                 default:
                   messageResponse = [
-                    // {
-                    //   type: 'text',
-                    //   text: `ขอโทษ :( ไม่รู้จักคำสั่ง ${command}`
-                    // },
+                    {
+                      type: 'text',
+                      text: `ขอโทษ :( ไม่รู้จักคำสั่ง ${command}`
+                    },
                     {
                       type: "sticker",
-                      packageId: "149",
-                      stickerId: "2"
+                      stickerId: "149",
+                      packageId: "2"
                     }
                   ]
                   break;

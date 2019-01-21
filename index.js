@@ -51,7 +51,7 @@ app.post('/webhook', (req, res) => {
           let text = message.text;
           let command = text.split(' ')[0] || ''
           let name = text.split(' ')[1] || ''
-          let messageResponse  = {
+          let messageResponse = {
             type: 'text',
             text: `ไม่พบข้อมูล`
           }
@@ -59,7 +59,7 @@ app.post('/webhook', (req, res) => {
           console.log(`command: ${command}`);
           console.log(`name: ${name}`);
           
-          if(text || name) {
+          if(!text || !name) {
             replyMessage(replyToken, messageResponse)
           } else {
             findItem(name, (result) => {
